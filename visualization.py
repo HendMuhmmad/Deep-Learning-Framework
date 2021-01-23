@@ -86,6 +86,88 @@ class visualization:
         plt.tight_layout()
         plt.show()
         
+    def visualize(self,X,Y):
+        """
+        :Description: 
+        plots a graph for the given x,y values and can plot multiple y values for the given x value.
+
+        :parameter X: The label and values on the x axis.
+        :type X: dictionary whose key is the label(str)  and whose items are the values(float) of that label.
+        :parameter Y: The values on the y axis associated with its name
+        :type Y: dictionary each key is the label(str)  and each associated items are the values(float) of that label.
+        :returns: none.
+        """
+
+        plt.xlabel(list(X.keys())[0])
+        for lab,y in Y.items():
+            plt.plot(list(X.values())[0],y,label=lab)
+        plt.legend()
+        plt.show()
+
+    def visualize_multiple_XY(self,xlabel,ylabel,d):
+        """
+        :Description: 
+        plots a graph for the given input.
+
+        :parameter xlabel: The value printed on the x axis.
+        :type xlabel: str.
+        :parameter ylabel: The value printed on the y axis.
+        :type ylabel: str.
+        :parameter d: The x and y values for each graph.
+        :type d: dictionary with each sub graph label(str) and its x,y(float) values.
+        :returns: none.
+        """
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        for lab,p in d.items():
+            x=p[0]
+            y=p[1]
+            plt.plot(x,y,label=lab)
+        plt.legend()
+        plt.show()
+    
+    def get_confusion_matrix(self,dic):
+        """
+        :Description: 
+        draw a confusion matrix table with the given values .
+
+        :parameter dic: The dictionary whose keys are the headers and items are values .
+        :type dic: dictionary.
+        :returns: A pandas Data Frame contains the confusion Matrix.
+        """
+        d={'Predict/true':list(dic.keys())}
+        d.update(dic)
+        df = pd.DataFrame(d)
+        return df.to_string(index=False)
+    
+    def visualize_PR(self,xlabel,ylabel,X,Y):
+        """
+        :Description: 
+        plots a graph for the given input.
+
+        :parameter xlabel: The value printed on the x axis.
+        :type xlabel: str.
+        :parameter ylabel: The value printed on the y axis.
+        :type ylabel: str.
+        :parameter X: The label of legend and values on the x axis.
+        :type X: dictionary whose key is the legend label(str)  and whose items are the values(float) of that label.
+        :parameter Y: The values on the y axis associated with its name
+        :type Y: dictionary each key is the label(str)  and each associated items are the values(float) of that label.
+        :returns: none.
+        """
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        for (labx,x), (laby,y) in zip(X.items(), Y.items()):
+            plt.plot(x,y,label=laby)
+        plt.legend()
+        plt.show()	
+
+    
+
+
+if __name__ == "__main__":
+    viz = visualization()
+    viz.visualize_multiple_XY("x","y",{"q":[[1,2,3,4,5],[1,2,3,4,5]]})
 
 
   
