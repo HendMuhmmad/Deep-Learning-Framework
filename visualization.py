@@ -162,12 +162,5 @@ class visualization:
         plt.legend()
         plt.show()	
 
-    
-
-
-if __name__ == "__main__":
-    viz = visualization()
-    viz.visualize_multiple_XY("x","y",{"q":[[1,2,3,4,5],[1,2,3,4,5]]})
-
 
   
