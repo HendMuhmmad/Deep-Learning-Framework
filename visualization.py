@@ -1,3 +1,20 @@
+"""
+*******
+Class visualization
+*******
+
+:Description:
+Visualise photo samples ,static graphs, live visualization
+
+:Parameters of class:
+No Parameters
+
+:APIs:
+view_photo_sample
+animate
+live_visualization
+visualize_multiple_XY
+"""
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
