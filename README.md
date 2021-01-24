@@ -1,6 +1,10 @@
 # Deep-Learning-Framework
 
-The Frame work allows us to build deep learning models more easily and quickly, without getting into the details of underlying algorithms. They provide a clear and concise way for defining models using a collection of pre-built and optimized components
+The Frame work allows us to build deep learning models more easily and quickly, without getting into the details of underlying algorithms. They provide a clear and concise way for defining models using a collection of pre-built and optimized components.
+
+# important 
+you must download kaggle json file from you kaggle account and put it in .kaggle folder in your user folder
+
 
 # The Frame Work consits of the following modules
 - [Data pre-processing Module](#Data-pre-processing-Module)
