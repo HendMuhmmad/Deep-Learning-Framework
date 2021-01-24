@@ -99,7 +99,7 @@ class visualization:
         size = len(values[title])
         xs = []
         ys = []
-        ani = animation.FuncAnimation(plt.gcf(), self.__animate,init_func=self.__init, interval=1000,frames=size,fargs=(values[title],xs,ys,title),repeat=False).save('animation.gif', writer='pillow')
+        ani = animation.FuncAnimation(plt.gcf(), self.__animate,init_func=self.__init, interval=1000,frames=size,fargs=(values[title],xs,ys,title),repeat=False).save(f'{title}.gif', writer='pillow')
         plt.tight_layout()
         plt.show()
         
@@ -143,7 +143,7 @@ class visualization:
         plt.legend()
         plt.show()
     
-    def get_confusion_matrix(self,dic):
+    def draw_table(self,dic):
         """
         :Description: 
         draw a confusion matrix table with the given values .
@@ -153,9 +153,16 @@ class visualization:
         :returns: A pandas Data Frame contains the confusion Matrix.
         """
         d={'Predict/true':list(dic.keys())}
-        d.update(dic)
-        df = pd.DataFrame(d)
-        return df.to_string(index=False)
+		d.update(dic)
+		df = pd.DataFrame(d)
+		data = df
+		cell_text = np.array(data)
+		row_labels = data.index
+		col_labels = data.columns
+		ytable = plt.table(cellText=cell_text, colLabels=col_labels, loc="center right")
+		plt.axis("off")
+		plt.grid(False)
+		plt.savefig('table.png')
     
     def visualize_PR(self,xlabel,ylabel,X,Y):
         """
