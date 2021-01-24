@@ -65,14 +65,9 @@ class Optimizer:
 
   def __call__(self,weight,weight_update,epoch_no,isBatchNorm,isLinear):
     
-    # print("______________________________________")
-    # print("optimizer is called ")
-    # print("before optimize : weight : ", weight )
-    # print("before optimize : weight_update : ", weight_update )
     
     if self.init == False:
       self.init_parameters(weight,isBatchNorm,isLinear)
-    # print(isBatchNorm)
 
     if self.name == 'Momentum' :
       return self.update_parameters_with_momentum(weight,weight_update,epoch_no,isBatchNorm,isLinear)
@@ -125,12 +120,10 @@ class Optimizer:
         self.sigma = self.raw * self.sigma + (1.0 - self.raw) * delta ** 2
 
         weight_ = g[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
-        # print(f"weight_.shape : {weight_.shape}")
         delta_W = delta[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
         weight['W'] = weight_ + delta_W
 
         bias = g[:,dimn2*dimn3].reshape(-1,1)
-        # print(f"bias.shape : {bias.shape}")
         delta_b = (delta[:,dimn2*dimn3]).reshape(-1,1)
         weight['b'] = bias + delta_b
 
@@ -164,15 +157,12 @@ class Optimizer:
     """      
     if isBatchNorm == False :
       if isLinear == True :
-        # print(f"shape weight_update['W'] = {weight_update['W'].shape}")
-        # print(f"shape weight_update['b'] = {weight_update['b'].shape}")
         g = np.concatenate((weight_update['W'],weight_update['b']),axis=0)
         self.Ai = self.Ai + g ** 2
         eta = self.alpha/np.sqrt((self.Ai + self.eps))
         delta = - eta * g
         weight['W'] = weight['W'] + delta[0:-1]
         weight['b'] = weight['b'] + delta[-1]
-        # print("norm of gradient : " ,np.linalg.norm(g))
 
       else :
 
@@ -183,21 +173,15 @@ class Optimizer:
 
         weight_update_converted =  weight_update['W'].reshape(dimn0,-1)
         g = np.concatenate((weight_update_converted,weight_update['b']),axis=1)
-        # print(f"self.Ai.shape {self.Ai.shape}")
-        # print(f"g.shape {g.shape}")
-        # print(f"weight_update_converted.shape {weight_update_converted.shape}")
-        # print(f"weight_update['b'].shape {weight_update['b'].shape}")
         self.Ai = self.Ai + g ** 2
         eta = self.alpha/np.sqrt((self.Ai + self.eps))
         delta = - eta * g
 
         weight_ = g[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
-        # print(f"weight_.shape : {weight_.shape}")
         delta_W = delta[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
         weight['W'] = weight_ + delta_W
 
         bias = g[:,dimn2*dimn3].reshape(-1,1)
-        # print(f"bias.shape : {bias.shape}")
         delta_b = (delta[:,dimn2*dimn3]).reshape(-1,1)
         weight['b'] = bias + delta_b
 
@@ -252,12 +236,10 @@ class Optimizer:
         delta = - eta * g
 
         weight_ = g[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
-        # print(f"weight_.shape : {weight_.shape}")
         delta_W = delta[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
         weight['W'] = weight_ + delta_W
 
         bias = g[:,dimn2*dimn3].reshape(-1,1)
-        # print(f"bias.shape : {bias.shape}")
         delta_b = (delta[:,dimn2*dimn3]).reshape(-1,1)
         weight['b'] = bias + delta_b
 
@@ -294,7 +276,6 @@ class Optimizer:
       if isLinear == True : #linear
         print("epoch at momentum :",epoch_no)
         g = np.concatenate((weight_update['W'],weight_update['b']),axis=0)
-        # eta = self.alpha/(np.sqrt((epoch_no+self.eps ))) #decaying lr
         delta =  - self.alpha * g
         self.momentum = self.beta * self.momentum + delta
         weight['W'] = weight['W'] + self.momentum[0:-1]
@@ -312,12 +293,10 @@ class Optimizer:
         self.momentum = self.beta * self.momentum + delta
 
         weight_ = g[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
-        # print(f"weight_.shape : {weight_.shape}")
         momentum_W = self.momentum[:,0:-1].reshape(dimn0,dimn1,dimn2,dimn3)
         weight['W'] = weight_ + momentum_W
 
         bias = g[:,dimn2*dimn3].reshape(-1,1)
-        # print(f"bias.shape : {bias.shape}")
         momentum_b = (self.momentum[:,dimn2*dimn3]).reshape(-1,1)
         weight['b'] = bias + momentum_b
 
