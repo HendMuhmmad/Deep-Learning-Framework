@@ -2,6 +2,9 @@ from numpy.random import RandomState
 import pandas as pd
 import os
 import numpy
+from zipfile import ZipFile
+from pathlib import Path
+import shutil
 
 def load_data():
   """
@@ -15,8 +18,17 @@ def load_data():
 
   :returns: the train, validation and test datasets in dataframe format
   """
-  os.environ['KAGGLE_USERNAME'] = "nesmamohamed"
-  os.environ['KAGGLE_KEY'] = "0be1d161a7d5c9610c323fef54e35354"
+  os.system('kaggle competitions download -c "digit-recognizer"')
+  zip = ZipFile('digit-recognizer.zip')
+  zip.extractall()
+  os.system('mkdir validation')
+  os.system('mkdir train')
+  os.system('mkdir labels')
+  os.system('mkdir train_validation')
+  os.system('mkdir test')
+  shutil.move('test.csv', './test')
+  shutil.move('train.csv', './train_validation')
+
   df = pd.read_csv('train_validation/train.csv')
   test = pd.read_csv('test/test.csv')
   #to generate the same data everytime we split
@@ -27,46 +39,6 @@ def load_data():
   train = train.reset_index(drop=True)
   validation = validation.reset_index(drop=True)
   return train,validation,test
-
-def transform_data(train_,validation_,test_):
-  """
-  :Description:
-
-  splits the features and the labels of the train and validation datasets
-  then transforms the dataframes into numpy arrays.
-
-  :parameter train_: input dataframe of train samples.
-  :type train_: dataframe of 33600 images with their pixels, its shape (33600x785).
-
-  :parameter validation_: input dataframe of validation samples.
-  :type validation_: dataframe of 8400 images with their pixels, its shape (8400x785).
-
-  :parameter test_: input dataframe of test samples.
-  :type test_: dataframe of 28000 images with their pixels.
-
-  :returns: 5 numpy arrays which are train_labels_array (33600x1), validation_labels_array (8400x1)
-  train_array (33600x784), validation_array (8400x784), test_array (28000x784)
-  """
-  train = train_
-  validation = validation_
-  test = test_
-  #train
-  train_label = train['label']
-  train_label.to_csv('labels/train_labels.csv',index=False)
-  train_labels_array = numpy.loadtxt(open("labels/train_labels.csv", "rb"), delimiter=",", skiprows=1)
-  train = train.drop(columns=['label'])
-  train.to_csv('train/train.csv',index=False)
-  train_array = numpy.loadtxt(open("train/train.csv", "rb"), delimiter=",", skiprows=1)
-  #validation
-  validation_label = validation['label']
-  validation_label.to_csv('labels/validation_labels.csv',index=False)
-  validation_labels_array = numpy.loadtxt(open("labels/validation_labels.csv", "rb"), delimiter=",", skiprows=1)
-  validation = validation.drop(columns=['label'])
-  validation.to_csv('validation/validation.csv',index=False)
-  validation_array = numpy.loadtxt(open("validation/validation.csv", "rb"), delimiter=",", skiprows=1)  
-  #test
-  test_array = numpy.loadtxt(open("test/test.csv", "rb"), delimiter=",", skiprows=1)
-  return train_labels_array,validation_labels_array,train_array,validation_array,test_array
 
 def normalize_data(train_array_,validation_array_):
   """
@@ -89,11 +61,3 @@ def normalize_data(train_array_,validation_array_):
   validation_array = validation_array.astype('float32')
   validation_array /= 255
   return train_array,validation_array
-
-
-
-# to try the functions:
-
-train,validation,test = load_data()
-train_labels_array,validation_labels_array,train_array,validation_array,test_array = transform_data(train,validation,test)
-train_array,validation_array = normalize_data(train_array,validation_array)
