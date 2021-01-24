@@ -94,7 +94,94 @@ def process_data_RGB():
       Images_Dict[number] = pixel
   Ordered_images_Dict = collections.OrderedDict(sorted(Images_Dict.items()))
   return Ordered_images_Dict
+  
+def get_pixels_array_RGB(Dict):
+  """
+  :Description:
 
+  it takes the images from the ordered dictionary and append them to a list
+  called "Image_List"
+  then convert the images in "Image_List" to pixels using "asarray()" 
+  and append them to a list (Pixels_List)
+  we read the "trainLabels.csv" file and convert it to a list (Labels_List)
+  the we randomly split "Pixels_List" to training and validation with a ratio
+  of 80% training and 20% validation
+  we do the same thing for Labels
+  then we convert training and validation Lists to numpy arrays.
+
+  :parameter images_dict: input dictionary of train images.
+  :type images_dict: dictionary of 50000 images.
+
+  :IMPORTANT:
+
+  make sure you are on the right path (we suppose you are in train after running process_data_RGB())
+
+  :returns: a numpy arrays of the training data (40000x32x32x3), validation data (10000x32x32x3), training labels (40000x1) and
+  validation labels (10000x1)
+
+  """
+  Ordered_images_Dict = Dict 
+  Pixels_List = []
+  train = []
+  train_labels = []
+  validation_Label_List = []
+  train_label_List = []
+
+  for key, value in Ordered_images_Dict.items():
+    Pixels_List.append(value)
+
+  labels = pd.read_csv("../../trainLabels.csv") 
+  Labels_List = labels.values.tolist()
+  idx = random.sample(range(50000), 40000)
+  for i in idx:
+    train.append(Pixels_List[i])
+    train_labels.append(Labels_List[i])
+  validation_List = [i for j, i in enumerate(Pixels_List) if j not in idx]
+  validation_Label = [i for j, i in enumerate(Labels_List) if j not in idx]
+  validation_array = np.asarray(validation_List)
+  Pixels_array = np.asarray(train)
+  for i in train_labels:
+    train_label_List.append(i[1]) 
+  for i in validation_Label:
+    validation_Label_List.append(i[1])
+  validation_Label_array = np.asarray(validation_Label_List)
+  trian_Label_array = np.asarray(train_label_List)
+  print(Pixels_List[0])
+  print(type(Pixels_List[0]))
+  print(Pixels_List[0].shape)
+  return Pixels_array,validation_array,trian_Label_array,validation_Label_array
+
+def get_test_pixels():
+  """
+  :Description:
+  creates a numpy array containing the pixels of the images.
+  
+  :IMPORTANT:
+
+  make sure you are on the right path (we suppose you are in the Test folder after running load_test() )
+
+
+  :returns: numpy array of the pixels of the images(300000x32x32x3).
+
+  """
+  os.chdir('test') 
+  Pixels_List = []  
+  imagesList = listdir('./')
+  for image in imagesList:
+    with open(os.path.join('./', image), 'rb') as i:
+      img = PImage.open(i)
+      pixel = asarray(img)
+      Pixels_List.append(pixel)
+  Pixels_array = np.asarray(Pixels_List)
+  return Pixels_array
+
+# To try the functions
+load_data_RGB()
+Dict = process_data_RGB()
+Pixels_array,validation_array,trian_Label_array,validation_Label_array=get_pixels_array_RGB(Dict)
+# we don't recommend trying those lines :) (because the test has 300000 image it will take alot of time to load and unzip)
+load_test()
+test_Array = get_test_pixels()
 
 
 
