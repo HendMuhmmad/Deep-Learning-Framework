@@ -1,5 +1,4 @@
 # Deep-Learning-Framework
-# Deep-Learning-Framework
 
 The Frame work allows us to build deep learning models more easily and quickly, without getting into the details of underlying algorithms. They provide a clear and concise way for defining models using a collection of pre-built and optimized components
 
