@@ -34,8 +34,8 @@ def load_data():
   #to generate the same data everytime we split
   train = df.sample(frac=0.8, random_state=8)
   validation = df.loc[~df.index.isin(train.index)]
-  validation.to_csv('validation/validation.csv', index=False)
-  train.to_csv('train/train.csv',index=False)
+  validation.to_csv('validation/validation.csv', index=False , header=False)
+  train.to_csv('train/train.csv',index=False , header=False)
   train = train.reset_index(drop=True)
   validation = validation.reset_index(drop=True)
   return train,validation,test
@@ -65,17 +65,17 @@ def transform_data(train_,validation_,test_):
   test = test_
   #train
   train_label = train['label']
-  train_label.to_csv('labels/train_labels.csv',index=False)
-  train_labels_array = numpy.loadtxt(open("labels/train_labels.csv", "rb"), delimiter=",", skiprows=1)
+  train_label.to_csv('labels/train_labels.csv',index=False , header=False)
+  train_labels_array = numpy.loadtxt(open("labels/train_labels.csv", "rb"), delimiter=",")
   train = train.drop(columns=['label'])
-  train.to_csv('train/train.csv',index=False)
+  train.to_csv('train/train.csv',index=False , header=False)
   train_array = numpy.loadtxt(open("train/train.csv", "rb"), delimiter=",", skiprows=1)
   #validation
   validation_label = validation['label']
-  validation_label.to_csv('labels/validation_labels.csv',index=False)
-  validation_labels_array = numpy.loadtxt(open("labels/validation_labels.csv", "rb"), delimiter=",", skiprows=1)
+  validation_label.to_csv('labels/validation_labels.csv',index=False , header=False)
+  validation_labels_array = numpy.loadtxt(open("labels/validation_labels.csv", "rb"), delimiter=",")
   validation = validation.drop(columns=['label'])
-  validation.to_csv('validation/validation.csv',index=False)
+  validation.to_csv('validation/validation.csv',index=False , header=False)
   validation_array = numpy.loadtxt(open("validation/validation.csv", "rb"), delimiter=",", skiprows=1)  
   #test
   test_array = numpy.loadtxt(open("test/test.csv", "rb"), delimiter=",", skiprows=1)
