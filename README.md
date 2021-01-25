@@ -5,6 +5,9 @@ The Frame work allows us to build deep learning models more easily and quickly, 
 # important 
 you must download kaggle json file from you kaggle account and put it in .kaggle folder in your user folder
 
+# package link
+https://pypi.org/project/PyVisionTeam17/0.0.5/
+
 
 # The Frame Work consits of the following modules
 - [Data pre-processing Module](#Data-pre-processing-Module)
