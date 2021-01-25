@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>evaluation_module module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="function module" href="function.html" />
+    <link rel="prev" title="datamodule module" href="datamodule.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-evaluation_module">
+<span id="evaluation-module-module"></span><h1>evaluation_module module<a class="headerlink" href="#module-evaluation_module" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="evaluation_module.Evaluation">
+<em class="property">class </em><code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">Evaluation</code><a class="headerlink" href="#evaluation_module.Evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="evaluation_module.Evaluation.accuracy">
+<code class="sig-name descname">accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.Evaluation.accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Calculate Accuracy of dataset.
+:parameter y_true: list of actual values
+:type y_true:array</p>
+<blockquote>
+<div><p>parameter y_pred: list of predicted values</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:type y_pred:array</dt><dd><dl class="field-list simple">
+<dt class="field-odd">returns</dt>
+<dd class="field-odd"><p>correct_labels / len(y_true)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="evaluation_module.Evaluation.true_positive">
+<code class="sig-name descname">true_positive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.Evaluation.true_positive" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<dl class="simple">
+<dt>Calculate number of true positives.</dt><dd><p>:parameter positive:class label.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y_true</strong> (<em>array .
+parameter y_pred: list of predicted values.</em>) – list of actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.f1_score">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">f1_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.f1_score" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Calculate f1_score .
+:parameter y_true: list of actual values.
+:type y_true: array .</p>
+<blockquote>
+<div><p>parameter y_pred: list of predicted values.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.false_negative">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">false_negative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.false_negative" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<dl class="simple">
+<dt>Calculate number of false negatives.</dt><dd><p>:parameter positive:class label.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y_true</strong> (<em>array .
+parameter y_pred: list of predicted values.</em>) – list of actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.false_positive">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">false_positive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.false_positive" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<dl class="simple">
+<dt>Calculate number of false positives.</dt><dd><p>:parameter positive:class label.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y_true</strong> (<em>array .
+parameter y_pred: list of predicted values.</em>) – list of actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.get_confusion_matrix_components">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">get_confusion_matrix_components</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">no_of_classes</span></em>, <em class="sig-param"><span class="n">y_ture</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.get_confusion_matrix_components" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Calculate confusion_matrix.
+:parameter no_of_classes: list of number of classes.
+:type no_of_classes: array .
+:parameter y_true: list of actual values.
+:type y_true: array .</p>
+<blockquote>
+<div><p>parameter y_pred: list of predicted values.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.precision_score">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">precision_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.precision_score" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Calculate precision_score .
+:parameter y_true: list of actual values.
+:type y_true: array .</p>
+<blockquote>
+<div><p>parameter y_pred: list of predicted values.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.recall_score">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">recall_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.recall_score" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Calculate recall_score .
+:parameter y_true: list of actual values.
+:type y_true: array .</p>
+<blockquote>
+<div><p>parameter y_pred: list of predicted values.</p>
+</div></blockquote>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="evaluation_module.true_negative">
+<code class="sig-prename descclassname">evaluation_module.</code><code class="sig-name descname">true_negative</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">positive</span></em>, <em class="sig-param"><span class="n">y_true</span></em>, <em class="sig-param"><span class="n">y_pred</span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation_module.true_negative" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<dl class="simple">
+<dt>Calculate number of true negatives.</dt><dd><p>:parameter positive:class label.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y_true</strong> (<em>array .
+parameter y_pred: list of predicted values.</em>) – list of actual values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="datamodule.html" title="previous chapter">datamodule module</a></li>
+      <li>Next: <a href="function.html" title="next chapter">function module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/evaluation_module.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

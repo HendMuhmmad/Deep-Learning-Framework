@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>model module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="net module" href="net.html" />
+    <link rel="prev" title="losses module" href="losses.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-model">
+<span id="model-module"></span><h1>model module<a class="headerlink" href="#module-model" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="model.Model">
+<em class="property">class </em><code class="sig-prename descclassname">model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers</span></em>, <em class="sig-param"><span class="n">loss</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="net.html#net.Net" title="net.Net"><code class="xref py py-class docutils literal notranslate"><span class="pre">net.Net</span></code></a></p>
+<dl class="py attribute">
+<dt id="model.Model.epochs_no">
+<code class="sig-name descname">epochs_no</code><a class="headerlink" href="#model.Model.epochs_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Model.evaluate">
+<code class="sig-name descname">evaluate</code><a class="headerlink" href="#model.Model.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.evaluate_accuracy">
+<code class="sig-name descname">evaluate_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">pred_np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.evaluate_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.evaluate_precision">
+<code class="sig-name descname">evaluate_precision</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">pred_np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.evaluate_precision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.evaluate_recall">
+<code class="sig-name descname">evaluate_recall</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">pred_np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.evaluate_recall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Model.no_of_classes">
+<code class="sig-name descname">no_of_classes</code><a class="headerlink" href="#model.Model.no_of_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.train_by_Loss">
+<code class="sig-name descname">train_by_Loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_train</span></em>, <em class="sig-param"><span class="n">Y_train</span></em>, <em class="sig-param"><span class="n">X_validation</span></em>, <em class="sig-param"><span class="n">Y_validation</span></em>, <em class="sig-param"><span class="n">stopping_loss</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.train_by_Loss" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.train_by_epochs">
+<code class="sig-name descname">train_by_epochs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_train</span></em>, <em class="sig-param"><span class="n">Y_train</span></em>, <em class="sig-param"><span class="n">X_validation</span></em>, <em class="sig-param"><span class="n">Y_validation</span></em>, <em class="sig-param"><span class="n">epochs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.train_by_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="model.Model.train_cnn_by_epochs_no">
+<code class="sig-name descname">train_cnn_by_epochs_no</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_train</span></em>, <em class="sig-param"><span class="n">Y_train</span></em>, <em class="sig-param"><span class="n">X_validation</span></em>, <em class="sig-param"><span class="n">Y_validation</span></em>, <em class="sig-param"><span class="n">epochs</span></em>, <em class="sig-param"><span class="n">N_imgs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.train_cnn_by_epochs_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="model.Model.train_strategy">
+<code class="sig-name descname">train_strategy</code><a class="headerlink" href="#model.Model.train_strategy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="losses.html" title="previous chapter">losses module</a></li>
+      <li>Next: <a href="net.html" title="next chapter">net module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
