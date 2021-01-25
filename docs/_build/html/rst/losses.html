@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>losses module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="model module" href="model.html" />
+    <link rel="prev" title="linear module" href="linear.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-losses">
+<span id="losses-module"></span><h1>losses module<a class="headerlink" href="#module-losses" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="losses.Loss">
+<em class="property">class </em><code class="sig-prename descclassname">losses.</code><code class="sig-name descname">Loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="losses.Loss.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#losses.Loss.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward pass for the loss function. Since it should be the final layer
+of an architecture, no input is needed for the backward pass.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>gradX: numpy.ndarray of shape (n_batch, n_dim). Local gradient of the loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="losses.Loss.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Loss.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the loss of x with respect to y.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+Y: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+<dt>Returns:</dt><dd><p>loss: numpy.float.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="losses.Loss.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Loss.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local gradient with respect to X at (X, Y).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+Y: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+<dt>Returns:</dt><dd><p>gradX: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="losses.MeanSquareLoss">
+<em class="property">class </em><code class="sig-prename descclassname">losses.</code><code class="sig-name descname">MeanSquareLoss</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.MeanSquareLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#losses.Loss" title="losses.Loss"><code class="xref py py-class docutils literal notranslate"><span class="pre">losses.Loss</span></code></a></p>
+<dl class="py method">
+<dt id="losses.MeanSquareLoss.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.MeanSquareLoss.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the mean square error of X with respect to Y.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+Y: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+<dt>Returns:</dt><dd><p>mse_loss: numpy.float. Mean square error of x with respect to y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="losses.MeanSquareLoss.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.MeanSquareLoss.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local gradient with respect to X at (X, Y).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+Y: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+<dt>Returns:</dt><dd><p>gradX: numpy.ndarray of shape (n_batch, n_dim). Gradient of MSE wrt X at X and Y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="losses.Multinomial_Logistic_Regression">
+<em class="property">class </em><code class="sig-prename descclassname">losses.</code><code class="sig-name descname">Multinomial_Logistic_Regression</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Multinomial_Logistic_Regression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#losses.Loss" title="losses.Loss"><code class="xref py py-class docutils literal notranslate"><span class="pre">losses.Loss</span></code></a></p>
+<dl class="py method">
+<dt id="losses.Multinomial_Logistic_Regression.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">probs</span></em>, <em class="sig-param"><span class="n">y_labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Multinomial_Logistic_Regression.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cross entropy loss of x with respect to y.</p>
+<dl>
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+y: numpy.ndarray of shape (n_batch, 1). Should contain class labels</p>
+<blockquote>
+<div><p>for each data point in x.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>crossentropy_loss: numpy.float. Cross entropy loss of x with respect to y.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="losses.Multinomial_Logistic_Regression.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">probs</span></em>, <em class="sig-param"><span class="n">y_labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.Multinomial_Logistic_Regression.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local gradient with respect to X at (X, Y).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: numpy.ndarray of shape (n_batch, n_dim).
+Y: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+<dt>Returns:</dt><dd><p>gradX: numpy.ndarray of shape (n_batch, n_dim).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="linear.html" title="previous chapter">linear module</a></li>
+      <li>Next: <a href="model.html" title="next chapter">model module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/losses.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

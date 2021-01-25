@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>activations module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cnn module" href="cnn.html" />
+    <link rel="prev" title="Welcome to PyVisionTeam17’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-activations">
+<span id="activations-module"></span><h1>activations module<a class="headerlink" href="#module-activations" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="activations.LeakyReLU">
+<em class="property">class </em><code class="sig-prename descclassname">activations.</code><code class="sig-name descname">LeakyReLU</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alpha</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.LeakyReLU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="activations.LeakyReLU.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.LeakyReLU.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward pass. Computes the local gradient at the input value
+after forward pass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.LeakyReLU.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.LeakyReLU.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass of the function. Calculates the output value (label) and the
+gradient at the input as well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.LeakyReLU.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.LeakyReLU.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the local gradients of the function at the given input.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>grad: dictionary of local gradients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="activations.ReLU">
+<em class="property">class </em><code class="sig-prename descclassname">activations.</code><code class="sig-name descname">ReLU</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.ReLU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="activations.ReLU.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.ReLU.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward pass. Computes the local gradient at the input value
+after forward pass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.ReLU.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.ReLU.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass of the function. Calculates the output value (label) and the
+gradient at the input as well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.ReLU.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.ReLU.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the local gradients of the function at the given input.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>grad: dictionary of local gradients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="activations.Sigmoid">
+<em class="property">class </em><code class="sig-prename descclassname">activations.</code><code class="sig-name descname">Sigmoid</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="activations.Sigmoid.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Sigmoid.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward pass. Computes the local gradient at the input value
+after forward pass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.Sigmoid.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Sigmoid.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass of the function. Calculates the output value (label) and the
+gradient at the input as well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.Sigmoid.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Sigmoid.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the local gradients of the function at the given input.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>grad: dictionary of local gradients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="activations.Softmax">
+<em class="property">class </em><code class="sig-prename descclassname">activations.</code><code class="sig-name descname">Softmax</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Softmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="activations.Softmax.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Softmax.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward pass. Computes the local gradient at the input value
+after forward pass.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.Softmax.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Softmax.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass of the function. Calculates the output value (label) and the
+gradient at the input as well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="activations.Softmax.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#activations.Softmax.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the local gradients of the function at the given input.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>grad: dictionary of local gradients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to PyVisionTeam17’s documentation!</a></li>
+      <li>Next: <a href="cnn.html" title="next chapter">cnn module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/activations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

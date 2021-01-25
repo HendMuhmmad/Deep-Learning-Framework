@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cnn module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="datamodule module" href="datamodule.html" />
+    <link rel="prev" title="activations module" href="activations.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-cnn">
+<span id="cnn-module"></span><h1>cnn module<a class="headerlink" href="#module-cnn" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="cnn.Conv">
+<em class="property">class </em><code class="sig-prename descclassname">cnn.</code><code class="sig-name descname">Conv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer_obj</span></em>, <em class="sig-param"><span class="n">in_channels</span></em>, <em class="sig-param"><span class="n">out_channels</span></em>, <em class="sig-param"><span class="n">kernel_size</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">stride</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">padding</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Conv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="layer.html#layer.Layer" title="layer.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">layer.Layer</span></code></a></p>
+<dl class="py method">
+<dt id="cnn.Conv.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Conv.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Backward pass for the conv layer.
+:Parameter dY: numpy.ndarray Global gradient backpropagated from the next layer.
+:returns:dX: numpy.ndarray of Global gradient of the conv layer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.Conv.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Conv.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Forward pass for the convolution layer.
+:Parameter X: numpy.ndarray of shape (N, C, H_in, W_in).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Y: numpy.ndarray of shape (N, F, H_out, W_out).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cnn.Flatten">
+<em class="property">class </em><code class="sig-prename descclassname">cnn.</code><code class="sig-name descname">Flatten</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="cnn.Flatten.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Flatten.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Backward pass for the Flatten layer.
+:Parameter dY: numpy.ndarray Global gradient backpropagated from the next layer.
+:Returns:</p>
+<blockquote>
+<div><p>dY.reshape(self.cache[‘shape’]) numpy.ndarray of Global gradient of the ,maxpolling layer.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.Flatten.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.Flatten.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:forward fn of flatten layer 
+:Parameter:input numpy array
+:Returns:the array after flattened</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cnn.LCN">
+<em class="property">class </em><code class="sig-prename descclassname">cnn.</code><code class="sig-name descname">LCN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer_obj</span></em>, <em class="sig-param"><span class="n">n_channels</span></em>, <em class="sig-param"><span class="n">epsilon</span><span class="o">=</span><span class="default_value">1e-05</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.LCN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="layer.html#layer.Layer" title="layer.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">layer.Layer</span></code></a></p>
+<dl class="py method">
+<dt id="cnn.LCN.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.LCN.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Backward pass for the 2D batchnorm layer. Calculates global gradients
+for the input and the parameters.
+:Parameter dY: numpy.ndarray of shape (n_batch, n_channels, height, width).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>dX: numpy.ndarray of shape (n_batch, n_channels, height, width).</dt><dd><p>Global gradient wrt the input X.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.LCN.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.LCN.forward" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p>Forward pass for the 2D batchnorm layer.</p>
+</dd>
+<dt class="field-even">Parameter X</dt>
+<dd class="field-even"><p>numpy.ndarray of shape (n_batch, n_channels, height, width).</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Y: numpy.ndarray of shape (n_batch, n_channels, height, width).</dt><dd><p>Batch-normalized tensor of X.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.LCN.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.LCN.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Descriptiom:Calculates the local gradient for X.
+:Parameter dY: numpy.ndarray of shape (n_batch, n_channels, height, width).
+:Returns:</p>
+<blockquote>
+<div><p>grads: dictionary of gradients.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="cnn.MaxPool">
+<em class="property">class </em><code class="sig-prename descclassname">cnn.</code><code class="sig-name descname">MaxPool</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_size</span><span class="o">=</span><span class="default_value">(2, 2)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.MaxPool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="function.html#function.Function" title="function.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">function.Function</span></code></a></p>
+<dl class="py method">
+<dt id="cnn.MaxPool.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dY</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.MaxPool.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Backward pass for the MaxPool layer.
+:Parameter dY: numpy.ndarray Global gradient backpropagated from the next layer.
+:Returns:</p>
+<blockquote>
+<div><p>Grad[‘X’]*dY numpy.ndarray of Global gradient of the ,maxpolling layer.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.MaxPool.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.MaxPool.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Forward pass for the MaxPool layer.
+:Parameter X: numpy.ndarray of shape (N, C, H_in, W_in).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Y: numpy.ndarray of shape (N, F, H_out, W_out)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cnn.MaxPool.local_grad">
+<code class="sig-name descname">local_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.MaxPool.local_grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>:Description:Calculates the local gradients of the function at the given input.
+:Returns:grad,dictionary of local gradients</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="cnn.zero_pad">
+<code class="sig-prename descclassname">cnn.</code><code class="sig-name descname">zero_pad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">pad_width</span></em>, <em class="sig-param"><span class="n">dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cnn.zero_pad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p>Pads the given array X with zeroes at the both end of given dims.</p>
+</dd>
+<dt class="field-even">Parameter X</dt>
+<dd class="field-even"><p>numpy.ndarray.</p>
+</dd>
+<dt class="field-odd">Parameter pad_width</dt>
+<dd class="field-odd"><p>int, width of the padding.</p>
+</dd>
+<dt class="field-even">Parmeter dims</dt>
+<dd class="field-even"><p>int or tuple, dimensions to be padded.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>X_padded: numpy.ndarray, zero padded X.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="activations.html" title="previous chapter">activations module</a></li>
+      <li>Next: <a href="datamodule.html" title="next chapter">datamodule module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/cnn.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>datamodule module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="evaluation_module module" href="evaluation_module.html" />
+    <link rel="prev" title="cnn module" href="cnn.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-datamodule">
+<span id="datamodule-module"></span><h1>datamodule module<a class="headerlink" href="#module-datamodule" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="datamodule.load_data">
+<code class="sig-prename descclassname">datamodule.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#datamodule.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>downloads the digit-recognizer data from kaggle as 2 zip files one contains
+the test.csv which has 28000 test image and the other contains 42000 train and
+validation images, then it unzips 
+the data into their specific folders after splitting the train and validation
+datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the train, validation and test datasets in dataframe format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datamodule.normalize_data">
+<code class="sig-prename descclassname">datamodule.</code><code class="sig-name descname">normalize_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_array_</span></em>, <em class="sig-param"><span class="n">validation_array_</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datamodule.normalize_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>normalize the train and validation arrays by dividing pixels values by 255.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_array</strong> (<em>numpy array of 33600 images with their pixels</em><em>, </em><em>its shape</em><em> (</em><em>33600x784</em><em>)</em><em></em>) – input numpy array of train samples.</p></li>
+<li><p><strong>validation_array</strong> (<em>numpy array of 8400 images with their pixels</em><em>, </em><em>its shape</em><em> (</em><em>8400x784</em><em>)</em><em></em>) – input numpy array of validation samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the train and validation numpy arrays after normalization</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="datamodule.transform_data">
+<code class="sig-prename descclassname">datamodule.</code><code class="sig-name descname">transform_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_</span></em>, <em class="sig-param"><span class="n">validation_</span></em>, <em class="sig-param"><span class="n">test_</span></em><span class="sig-paren">)</span><a class="headerlink" href="#datamodule.transform_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>splits the features and the labels of the train and validation datasets
+then transforms the dataframes into numpy arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train</strong> (<em>dataframe of 33600 images with their pixels</em><em>, </em><em>its shape</em><em> (</em><em>33600x785</em><em>)</em><em></em>) – input dataframe of train samples.</p></li>
+<li><p><strong>validation</strong> (<em>dataframe of 8400 images with their pixels</em><em>, </em><em>its shape</em><em> (</em><em>8400x785</em><em>)</em><em></em>) – input dataframe of validation samples.</p></li>
+<li><p><strong>test</strong> (<em>dataframe of 28000 images with their pixels.</em>) – input dataframe of test samples.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>5 numpy arrays which are train_labels_array (33600x1), validation_labels_array (8400x1)</p>
+</dd>
+</dl>
+<p>train_array (33600x784), validation_array (8400x784), test_array (28000x784)</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cnn.html" title="previous chapter">cnn module</a></li>
+      <li>Next: <a href="evaluation_module.html" title="next chapter">evaluation_module module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/datamodule.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

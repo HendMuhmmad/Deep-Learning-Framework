@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visualization module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="utils module" href="utils.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-visualization">
+<span id="visualization-module"></span><h1>visualization module<a class="headerlink" href="#module-visualization" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="visualization.visualization">
+<em class="property">class </em><code class="sig-prename descclassname">visualization.</code><code class="sig-name descname">visualization</code><a class="headerlink" href="#visualization.visualization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="visualization.visualization.draw_table">
+<code class="sig-name descname">draw_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualization.visualization.draw_table" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>prints a table with the given values .</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dic</strong> (<em>dictionary.</em>) – The dictionary whose keys are the headers and items are values .</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>none.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="visualization.visualization.live_visualization">
+<code class="sig-name descname">live_visualization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualization.visualization.live_visualization" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Plots a live visualization for the input vs the number of iterations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>dictionary whose key is the label</em><em>(</em><em>str</em><em>)  </em><em>and whose items are the values</em><em>(</em><em>float</em><em>) </em><em>of that label.</em>) – input values to be graphed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>none.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="visualization.visualization.view_photo_sample">
+<code class="sig-name descname">view_photo_sample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">rgb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualization.visualization.view_photo_sample" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Displays an RGB or gray scale image from an input array and saves it in sample.jpg file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<em>array of float</em><em> or </em><em>int with image size and any shape.</em>) – input sample as an array of pixels.</p></li>
+<li><p><strong>w</strong> (<em>int.</em>) – required image width.</p></li>
+<li><p><strong>h</strong> (<em>int.</em>) – required image height.</p></li>
+<li><p><strong>rgb</strong> (<em>bool.</em>) – states wether the image is rgb or gray scale.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>none.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="visualization.visualization.visualize">
+<code class="sig-name descname">visualize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualization.visualization.visualize" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>plots a graph for the given x,y values and can plot multiple y values for the given x value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>dictionary whose key is the label</em><em>(</em><em>str</em><em>)  </em><em>and whose items are the values</em><em>(</em><em>float</em><em>) </em><em>of that label.</em>) – The label and values on the x axis.</p></li>
+<li><p><strong>Y</strong> (<em>dictionary each key is the label</em><em>(</em><em>str</em><em>)  </em><em>and each associated items are the values</em><em>(</em><em>float</em><em>) </em><em>of that label.</em>) – The values on the y axis associated with its name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>none.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="visualization.visualization.visualize_multiple_XY">
+<code class="sig-name descname">visualize_multiple_XY</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xlabel</span></em>, <em class="sig-param"><span class="n">ylabel</span></em>, <em class="sig-param"><span class="n">d</span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualization.visualization.visualize_multiple_XY" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Description</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>plots a graph for the given input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xlabel</strong> (<em>str.</em>) – The value printed on the x axis.</p></li>
+<li><p><strong>ylabel</strong> (<em>str.</em>) – The value printed on the y axis.</p></li>
+<li><p><strong>d</strong> (<em>dictionary with each sub graph label</em><em>(</em><em>str</em><em>) </em><em>and its x</em><em>,</em><em>y</em><em>(</em><em>float</em><em>) </em><em>values.</em>) – The x and y values for each graph.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>none.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="net.html">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="utils.html" title="previous chapter">utils module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/visualization.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

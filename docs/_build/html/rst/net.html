@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>net module &#8212; PyVisionTeam17 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Optimizer module" href="Optimizer.html" />
+    <link rel="prev" title="model module" href="model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-net">
+<span id="net-module"></span><h1>net module<a class="headerlink" href="#module-net" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="net.Net">
+<em class="property">class </em><code class="sig-prename descclassname">net.</code><code class="sig-name descname">Net</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers</span></em>, <em class="sig-param"><span class="n">loss</span></em><span class="sig-paren">)</span><a class="headerlink" href="#net.Net" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="net.Net.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#net.Net.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Complete backward pass for the net. Should be called after the forward
+pass and the loss are calculated.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>d: numpy.ndarray of shape matching the input during forward pass.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="net.Net.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#net.Net.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the forward pass by propagating the input through the
+layers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: numpy.ndarray. Input of the net.</p>
+</dd>
+<dt>Returns:</dt><dd><p>output: numpy.ndarray. Output of the net.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="net.Net.layers">
+<code class="sig-name descname">layers</code><a class="headerlink" href="#net.Net.layers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="net.Net.loss">
+<code class="sig-name descname">loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#net.Net.loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the loss of the forward pass output with respect to y.
+Should be called after forward pass.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: numpy.ndarray. Output of the forward pass.
+y: numpy.ndarray. Ground truth.</p>
+</dd>
+<dt>Returns:</dt><dd><p>loss: numpy.float. Loss value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="net.Net.loss_fn">
+<code class="sig-name descname">loss_fn</code><a class="headerlink" href="#net.Net.loss_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="net.Net.update_weights">
+<code class="sig-name descname">update_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch_no</span></em><span class="sig-paren">)</span><a class="headerlink" href="#net.Net.update_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the weights for all layers using the corresponding gradients
+computed during backpropagation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PyVisionTeam17</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activations.html">activations module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">cnn module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datamodule.html">datamodule module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_module.html">evaluation_module module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">function module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional.html">functional module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="layer.html">layer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear.html">linear module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">losses module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">model module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">net module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimizer.html">Optimizer module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">visualization module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="model.html" title="previous chapter">model module</a></li>
+      <li>Next: <a href="Optimizer.html" title="next chapter">Optimizer module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, team17.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/net.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
